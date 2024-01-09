@@ -10,10 +10,15 @@ public class GameManager : MonoBehaviour
     public Terrain BaseTerrain;
     public AllyCharacter Character;
 
+    void Awake()
+    {
+        CreateMap();
+    }
+
     void CreateMap()
     {
         _mapSize = GameData.MapSize;
-        BaseTerrain.enabled = true;
+        BaseTerrain.gameObject.SetActive(true);
         BaseTerrain.terrainData.size = _mapSize;
     }
     void CreateCharacters()
