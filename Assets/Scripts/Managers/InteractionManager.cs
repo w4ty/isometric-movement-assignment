@@ -7,13 +7,13 @@ public class InteractionManager : MonoBehaviour
 {
     [SerializeField]
     private InputManager inputManager;
-    public event Action<ISelectable> OnCharacterSelected;
+    public event Action<AllyCharacter> OnCharacterSelected;
     public event Action<Vector3> OnWalkable;
 
     private void OnSelected(Vector3 origin)
     {
         var target = RaycastHelper.GetRaycastableAt(origin);
-        if (target is ISelectable selectable)
+        if (target is AllyCharacter selectable)
         {
             OnCharacterSelected?.Invoke(selectable);
         }
