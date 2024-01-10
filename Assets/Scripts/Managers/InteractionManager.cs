@@ -12,12 +12,20 @@ public class InteractionManager : MonoBehaviour
 
     private void OnSelected(Vector3 origin)
     {
-        Debug.Log($"Selected on:  {origin}");
+        var target = RaycastHelper.GetRaycastableAt(origin);
+        if (target is ISelectable selectable)
+        {
+            Debug.Log(selectable);
+        }
     }
 
     private void OnInteracted(Vector3 origin)
     {
-        Debug.Log($"Interacted on:  {origin}");
+        var target = RaycastHelper.GetRaycastableAt(origin);
+        if (target is IUseable useable)
+        {
+            Debug.Log(useable);
+        }
     }
 
     private void Awake()
