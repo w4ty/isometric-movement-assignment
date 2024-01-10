@@ -407,6 +407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 599f6d58a7d971247b169a14188df7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputManager: {fileID: 814075661}
   GameData: {fileID: 11400000, guid: 8543bae7da51da84d93b7c339e2e298e, type: 2}
   BaseTerrain: {fileID: 1568635544}
   Character: {fileID: 1014445752}
