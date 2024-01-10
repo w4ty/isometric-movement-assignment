@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class RaycastHelper : MonoBehaviour
@@ -13,5 +14,9 @@ public class RaycastHelper : MonoBehaviour
             return raycastable;
         }
         return null;
+    }
+    public static bool IsAnyRaycastableAt(Vector3 origin)
+    {
+        return GetRaycastableAt(origin) != null;
     }
 }
