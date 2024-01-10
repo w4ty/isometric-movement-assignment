@@ -7,8 +7,8 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     private InputManager inputManager;
-    private int _allyCharacterAmount;
-    private Vector3 _mapSize;
+    private int allyCharacterAmount;
+    private Vector3 mapSize;
     public GameDataScriptableObject GameData;
     public Terrain BaseTerrain;
     public AllyCharacter Character;
@@ -41,13 +41,13 @@ public class GameManager : MonoBehaviour
 
     void CreateMap()
     {
-        _mapSize = GameData.MapSize;
+        mapSize = GameData.MapSize;
         BaseTerrain.gameObject.SetActive(true);
-        BaseTerrain.terrainData.size = _mapSize;
+        BaseTerrain.terrainData.size = mapSize;
     }
     void CreateCharacters()
     {
-        _allyCharacterAmount = GameData.AllyCharacterAmount;
+        allyCharacterAmount = GameData.AllyCharacterAmount;
         Debug.Log("Creating characters");
     }
 }
