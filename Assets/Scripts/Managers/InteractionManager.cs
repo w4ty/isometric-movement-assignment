@@ -15,7 +15,7 @@ public class InteractionManager : MonoBehaviour
         var target = RaycastHelper.GetRaycastableAt(origin);
         if (target is ISelectable selectable)
         {
-            Debug.Log(selectable);
+            OnCharacterSelected?.Invoke(selectable);
         }
     }
 
@@ -25,6 +25,10 @@ public class InteractionManager : MonoBehaviour
         if (target is IUseable useable)
         {
             Debug.Log(useable);
+        }
+        else if (!RaycastHelper.IsAnyRaycastableAt(origin))
+        {
+            OnWalkable?.Invoke(Camera.main.ScreenToWorldPoint(origin));
         }
     }
 
