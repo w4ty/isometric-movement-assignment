@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AllyCharacter : MonoBehaviour, IMoveable, IKillable, ISelectable
+public class AllyCharacter : MonoBehaviour, IMoveable, IKillable, ISelectable, IRaycastable
 {
     public CharacterDataScriptableObject CharacterData;
 

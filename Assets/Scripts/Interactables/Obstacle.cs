@@ -2,4 +2,4 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour, IUseable{}
+public class Obstacle : MonoBehaviour, IUseable, IRaycastable{}
