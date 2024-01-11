@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         CreateMap();
+        CreateCharacters();
         if (inputManager != null)
         {
             inputManager.OnExited += OnExited;
@@ -48,6 +49,9 @@ public class GameManager : MonoBehaviour
     void CreateCharacters()
     {
         allyCharacters = GameData.AllyCharacters;
-        Debug.Log("Creating characters");
+        for (int i = 0;  i < allyCharacters.Count; i++)
+        {
+            Instantiate(Character).transform.position = allyCharacters[i];
+        }
     }
 }
