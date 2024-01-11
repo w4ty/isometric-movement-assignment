@@ -7,11 +7,14 @@ public class AllyManager : MonoBehaviour
     [SerializeField]
     private InteractionManager interactionManager;
     public AllyCharacter Leader;
+    public LeaderIndicator LeadIndicator;
     public List<AllyCharacter> Allies;
 
     private void OnCharacterSelected(AllyCharacter character)
     {
         Debug.Log($"{character} has been selected!");
+        Leader = character;
+        LeadIndicator.SetLeader(Leader);
     }
     
     private void OnWalkable(Vector3 destination)
