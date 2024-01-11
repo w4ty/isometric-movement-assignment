@@ -10,10 +10,10 @@ public class AllyManager : MonoBehaviour
     public LeaderIndicator LeadIndicator;
     public List<AllyCharacter> Allies;
 
-    private void OnCharacterSelected(AllyCharacter character)
+    private void OnSelectable(ISelectable character)
     {
-        Debug.Log($"{character} has been selected!");
-        Leader = character;
+        Leader = character as AllyCharacter;
+        Debug.Log($"{Leader} has been selected!");
         LeadIndicator.SetLeader(Leader);
     }
     
@@ -26,7 +26,7 @@ public class AllyManager : MonoBehaviour
     {
         if (interactionManager != null)
         {
-            interactionManager.OnCharacterSelected += OnCharacterSelected;
+            interactionManager.OnSelectable += OnSelectable;
             interactionManager.OnWalkable += OnWalkable;
         }
 
@@ -37,7 +37,7 @@ public class AllyManager : MonoBehaviour
     {
         if (interactionManager != null)
         {
-            interactionManager.OnCharacterSelected -= OnCharacterSelected;
+            interactionManager.OnSelectable -= OnSelectable;
             interactionManager.OnWalkable -= OnWalkable;
         }
     }
