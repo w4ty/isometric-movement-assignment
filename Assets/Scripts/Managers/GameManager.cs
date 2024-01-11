@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     private InputManager inputManager;
-    private int allyCharacterAmount;
+    private List<Vector3> allyCharacters;
     private Vector3 mapSize;
     public GameDataScriptableObject GameData;
     public Terrain BaseTerrain;
@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
     }
     void CreateCharacters()
     {
-        allyCharacterAmount = GameData.AllyCharacterAmount;
+        allyCharacters = GameData.AllyCharacters;
         Debug.Log("Creating characters");
     }
 }
