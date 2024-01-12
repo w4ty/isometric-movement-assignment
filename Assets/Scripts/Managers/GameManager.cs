@@ -7,11 +7,10 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     private InputManager inputManager;
-    private List<Vector3> allyCharacters;
+    private List<SpawnerInfo> spawns;
     private Vector3 mapSize;
     public GameDataScriptableObject GameData;
     public Terrain BaseTerrain;
-    public AllyCharacter Character;
 
     private void OnExited()
     {
@@ -25,7 +24,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         CreateMap();
-        CreateCharacters();
+        SpawnObjects();
         if (inputManager != null)
         {
             inputManager.OnExited += OnExited;
@@ -46,12 +45,12 @@ public class GameManager : MonoBehaviour
         BaseTerrain.gameObject.SetActive(true);
         BaseTerrain.terrainData.size = mapSize;
     }
-    void CreateCharacters()
+    void SpawnObjects()
     {
-        allyCharacters = GameData.AllyCharacters;
-        for (int i = 0;  i < allyCharacters.Count; i++)
+        spawns = GameData.Spawns;
+        for (int i = 0;  i < spawns.Count; i++)
         {
-            Instantiate(Character).transform.position = allyCharacters[i];
+            Instantiate(spawns[i].SpawnObject).transform.position = spawns[i].Position;
         }
     }
 }
