@@ -509,6 +509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputManager: {fileID: 814075661}
+  allyManager: {fileID: 1951536055}
   GameData: {fileID: 11400000, guid: 8543bae7da51da84d93b7c339e2e298e, type: 2}
   BaseTerrain: {fileID: 1568635544}
 --- !u!4 &807704493
@@ -1030,10 +1031,10 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 1568635545}
-  - {fileID: 807704493}
   - {fileID: 814075660}
   - {fileID: 1672338083}
   - {fileID: 1951536056}
   - {fileID: 860836338}
   - {fileID: 701345144}
   - {fileID: 981081952}
+  - {fileID: 807704493}
