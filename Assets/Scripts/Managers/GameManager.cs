@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     private InputManager inputManager;
     [SerializeField]
     private AllyManager allyManager;
+    [SerializeField]
+    private UIManager uiManager;
     private List<SpawnerInfo> spawns = new();
     private Vector3 mapSize;
     public GameDataScriptableObject GameData;
@@ -57,6 +59,7 @@ public class GameManager : MonoBehaviour
             instance.transform.position = spawns[i].Position;
             if (instance.TryGetComponent(out AllyCharacter ally))
             {
+                uiManager.CreateButton(ally.ToString());
                 allyManager.Allies.Add(ally);
             }
         }
