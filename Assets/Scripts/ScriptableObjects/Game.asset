@@ -17,3 +17,12 @@ MonoBehaviour:
   - Position: {x: 12, y: 1, z: 14}
     SpawnObject: {fileID: 5805860028190266960, guid: bd7ff2465939eb3479966b46af955c03,
       type: 3}
+  - Position: {x: 12, y: 1, z: 10}
+    SpawnObject: {fileID: 5805860028190266960, guid: bd7ff2465939eb3479966b46af955c03,
+      type: 3}
+  - Position: {x: 16, y: 1, z: 10}
+    SpawnObject: {fileID: 5805860028190266960, guid: bd7ff2465939eb3479966b46af955c03,
+      type: 3}
+  - Position: {x: 18, y: 0.5, z: 18}
+    SpawnObject: {fileID: 6366105601469750586, guid: c67d893a988634246890e61c61ff579d,
+      type: 3}
