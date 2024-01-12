@@ -29,8 +29,6 @@ public class AllyManager : MonoBehaviour
             interactionManager.OnSelectable += OnSelectable;
             interactionManager.OnWalkable += OnWalkable;
         }
-
-        Allies = new List<AllyCharacter>(FindObjectsOfType<AllyCharacter>(false));
     }
 
     private void OnDestroy()
