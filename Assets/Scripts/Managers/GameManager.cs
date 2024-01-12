@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -7,7 +8,9 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     private InputManager inputManager;
-    private List<SpawnerInfo> spawns;
+    [SerializeField]
+    private AllyManager allyManager;
+    private List<SpawnerInfo> spawns = new();
     private Vector3 mapSize;
     public GameDataScriptableObject GameData;
     public Terrain BaseTerrain;
@@ -47,10 +50,15 @@ public class GameManager : MonoBehaviour
     }
     void SpawnObjects()
     {
-        spawns = GameData.Spawns;
+        spawns.AddRange(GameData.Spawns);
         for (int i = 0;  i < spawns.Count; i++)
         {
-            Instantiate(spawns[i].SpawnObject).transform.position = spawns[i].Position;
+            var instance = Instantiate(spawns[i].SpawnObject);
+            instance.transform.position = spawns[i].Position;
+            if (instance.TryGetComponent(out AllyCharacter ally))
+            {
+                allyManager.Allies.Add(ally);
+            }
         }
         spawns.Clear();
     }
