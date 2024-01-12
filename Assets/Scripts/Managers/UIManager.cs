@@ -11,8 +11,6 @@ public class UIManager : MonoBehaviour
     private Button button;
     [SerializeField]
     private GameObject panel;
-    [SerializeField]
-    private InteractionManager interactionManager;
     private List<Button> buttons = new();
     public event Action<ISelectable> OnSelectable;
 
@@ -27,6 +25,6 @@ public class UIManager : MonoBehaviour
 
     private void OnClick(AllyCharacter character)
     {
-        OnSelectable?.Invoke(character as ISelectable);
+        OnSelectable?.Invoke(character);
     }
 }
