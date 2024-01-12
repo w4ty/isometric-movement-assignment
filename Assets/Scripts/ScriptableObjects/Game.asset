@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6b53d4c8f59ee46905a8d39dce3d12, type: 3}
   m_Name: Game
   m_EditorClassIdentifier: 
-  MapSize: {x: 50, y: 50, z: 600}
+  MapSize: {x: 50, y: 600, z: 50}
   Spawns:
   - Position: {x: 12, y: 1, z: 14}
     SpawnObject: {fileID: 5805860028190266960, guid: bd7ff2465939eb3479966b46af955c03,
