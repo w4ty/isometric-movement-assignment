@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
             instance.transform.position = spawns[i].Position;
             if (instance.TryGetComponent(out AllyCharacter ally))
             {
-                uiManager.CreateButton(ally.ToString());
+                uiManager.CreateButton(ally.ToString(), ally);
                 allyManager.Allies.Add(ally);
             }
         }

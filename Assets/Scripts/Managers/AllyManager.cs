@@ -6,20 +6,26 @@ public class AllyManager : MonoBehaviour
 {
     [SerializeField]
     private InteractionManager interactionManager;
+    [SerializeField]
+    private UIManager uiManager;
     public AllyCharacter Leader;
     public LeaderIndicator LeadIndicator;
     public List<AllyCharacter> Allies;
 
     private void OnSelectable(ISelectable character)
     {
-        Leader = character as AllyCharacter;
-        Debug.Log($"{Leader} has been selected!");
-        LeadIndicator.SetLeader(Leader);
+        UpdateLeader(character as AllyCharacter);
     }
     
     private void OnWalkable(Vector3 destination)
     {
         Debug.Log($"{destination} is walkable!");
+    }
+    private void UpdateLeader(AllyCharacter character)
+    {
+        Leader = character;
+        Debug.Log($"{Leader} has been selected!");
+        LeadIndicator.SetLeader(Leader);
     }
 
     private void Awake()
@@ -29,6 +35,10 @@ public class AllyManager : MonoBehaviour
             interactionManager.OnSelectable += OnSelectable;
             interactionManager.OnWalkable += OnWalkable;
         }
+        if (uiManager != null)
+        {
+            uiManager.OnSelectable += OnSelectable;
+        }
     }
 
     private void OnDestroy()
@@ -37,6 +47,10 @@ public class AllyManager : MonoBehaviour
         {
             interactionManager.OnSelectable -= OnSelectable;
             interactionManager.OnWalkable -= OnWalkable;
+        }
+        if (uiManager != null )
+        {
+            uiManager.OnSelectable -= OnSelectable;
         }
     }
 }
