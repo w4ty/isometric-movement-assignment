@@ -52,5 +52,6 @@ public class GameManager : MonoBehaviour
         {
             Instantiate(spawns[i].SpawnObject).transform.position = spawns[i].Position;
         }
+        spawns.Clear();
     }
 }
