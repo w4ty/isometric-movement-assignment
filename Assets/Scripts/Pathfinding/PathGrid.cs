@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class PathGrid : MonoBehaviour
 {
-    //public Transform StartPosition;
+    [SerializeField]
+    private GameManager gameManager;
     public LayerMask WallMask;
     private Vector2Int gridWorldSize;
     private Vector3Int gridStart;
@@ -19,11 +20,27 @@ public class PathGrid : MonoBehaviour
     private Vector2Int gridSize;
     private Vector3 bottomLeft;
 
-    public void SetGrid(int x, int z)
+    private void Awake()
+    {
+        if(gameManager != null)
+        {
+            gameManager.OnFinishSetup += SetGrid;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (gameManager != null)
+        {
+            gameManager.OnFinishSetup -= SetGrid;
+        }
+    }
+
+    public void SetGrid(Vector2Int size)
     {
         Debug.Log("Setting grid");
-        gridWorldSize = new Vector2Int(x, z);
-        transform.position = new Vector3Int(x/2, 0, z/2);
+        gridWorldSize = new Vector2Int(size.x, size.y);
+        transform.position = new Vector3Int(size.x/2, 0, size.y/2);
         nodeDiameter = NodeRadius * 2;
         gridSize = new Vector2Int(Mathf.RoundToInt(gridWorldSize.x / nodeDiameter), Mathf.RoundToInt(gridWorldSize.y / nodeDiameter));
     }
@@ -60,7 +77,6 @@ public class PathGrid : MonoBehaviour
         int iy = Mathf.RoundToInt(y);
 
         return grid[ix, iy];
-
     }
 
     public List<Node> GetNeighborNodes(Node a_Node)

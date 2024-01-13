@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     private Vector3Int mapSize;
     public GameDataScriptableObject GameData;
     public Terrain BaseTerrain;
+    public event Action<Vector2Int> OnFinishSetup;
 
     private void OnExited()
     {
@@ -30,7 +31,6 @@ public class GameManager : MonoBehaviour
     {
         CreateMap();
         SpawnObjects();
-        GridLogic();
         if (inputManager != null)
         {
             inputManager.OnExited += OnExited;
@@ -66,10 +66,6 @@ public class GameManager : MonoBehaviour
             }
         }
         spawns.Clear();
-    }
-
-    private void GridLogic()
-    {
-        GetComponent<PathGrid>().SetGrid(mapSize.x, mapSize.z);
+        OnFinishSetup?.Invoke(new Vector2Int(mapSize.x, mapSize.z));
     }
 }
