@@ -19,4 +19,13 @@ public class RaycastHelper : MonoBehaviour
     {
         return GetRaycastableAt(origin) != null;
     }
+    public static Vector3 GetRayPos(Vector3 origin)
+    {
+        Ray ray = Camera.main.ScreenPointToRay(origin);
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity))
+        {
+            return hit.point;
+        }
+        return Vector3.zero;
+    }
 }

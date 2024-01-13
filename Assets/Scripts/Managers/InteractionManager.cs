@@ -28,7 +28,7 @@ public class InteractionManager : MonoBehaviour
         }
         else if (!RaycastHelper.IsAnyRaycastableAt(origin))
         {
-            OnWalkable?.Invoke(Camera.main.ScreenToWorldPoint(origin));
+            OnWalkable?.Invoke(RaycastHelper.GetRayPos(origin));
         }
     }
 
