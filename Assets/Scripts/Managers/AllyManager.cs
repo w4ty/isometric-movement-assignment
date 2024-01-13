@@ -9,7 +9,7 @@ public class AllyManager : MonoBehaviour
     [SerializeField]
     private UIManager uiManager;
     [SerializeField]
-    private AStar pathfinder;
+    private AStar navigationManager;
     public AllyCharacter Leader;
     public LeaderIndicator LeadIndicator;
     public List<AllyCharacter> Allies;
@@ -23,7 +23,7 @@ public class AllyManager : MonoBehaviour
     {
         if (Leader != null)
         {
-            pathfinder.FindPath(Leader.transform.position, destination);
+            navigationManager.FindPath(Leader.transform.position, destination);
         }
     }
     private void UpdateLeader(AllyCharacter character)
