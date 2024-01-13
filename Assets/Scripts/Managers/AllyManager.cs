@@ -9,7 +9,6 @@ public class AllyManager : MonoBehaviour
     [SerializeField]
     private UIManager uiManager;
     [SerializeField]
-    private AStar navigationManager;
     public AllyCharacter Leader;
     public LeaderIndicator LeadIndicator;
     public List<AllyCharacter> Allies;
@@ -23,7 +22,7 @@ public class AllyManager : MonoBehaviour
     {
         if (Leader != null)
         {
-            navigationManager.FindPath(Leader.transform.position, destination);
+            Leader.Move(destination);
         }
     }
     private void UpdateLeader(AllyCharacter character)
@@ -31,6 +30,27 @@ public class AllyManager : MonoBehaviour
         Leader = character;
         Debug.Log($"{Leader} has been selected!");
         LeadIndicator.SetLeader(Leader);
+    }
+
+    private void FixedUpdate()
+    {
+        if (Leader != null)
+        {
+            foreach(AllyCharacter character in Allies)
+            {
+                if (character != Leader) 
+                {
+                    if(Vector3.Distance(character.transform.position, Leader.transform.position) > 3)
+                    {
+                        character.Move(Leader.transform.position);
+                    }
+                    else
+                    {
+                        character.Stop();
+                    }
+                }
+            }
+        }
     }
 
     private void Awake()
