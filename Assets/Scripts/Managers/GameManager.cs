@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private UIManager uiManager;
     private List<SpawnerInfo> spawns = new();
-    private Vector3 mapSize;
+    private Vector3Int mapSize;
     public GameDataScriptableObject GameData;
     public Terrain BaseTerrain;
 
@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     {
         CreateMap();
         SpawnObjects();
+        GridLogic();
         if (inputManager != null)
         {
             inputManager.OnExited += OnExited;
@@ -48,6 +49,7 @@ public class GameManager : MonoBehaviour
     {
         mapSize = GameData.MapSize;
         BaseTerrain.gameObject.SetActive(true);
+        BaseTerrain.gameObject.transform.position = Vector3Int.zero;
         BaseTerrain.terrainData.size = mapSize;
     }
     void SpawnObjects()
@@ -64,5 +66,10 @@ public class GameManager : MonoBehaviour
             }
         }
         spawns.Clear();
+    }
+
+    private void GridLogic()
+    {
+        GetComponent<PathGrid>().SetGrid(mapSize.x, mapSize.z);
     }
 }
