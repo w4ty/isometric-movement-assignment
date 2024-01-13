@@ -8,6 +8,8 @@ public class AllyManager : MonoBehaviour
     private InteractionManager interactionManager;
     [SerializeField]
     private UIManager uiManager;
+    [SerializeField]
+    private AStar pathfinder;
     public AllyCharacter Leader;
     public LeaderIndicator LeadIndicator;
     public List<AllyCharacter> Allies;
@@ -19,7 +21,10 @@ public class AllyManager : MonoBehaviour
     
     private void OnWalkable(Vector3 destination)
     {
-        Debug.Log($"{destination} is walkable!");
+        if (Leader != null)
+        {
+            pathfinder.FindPath(Leader.transform.position, destination);
+        }
     }
     private void UpdateLeader(AllyCharacter character)
     {
