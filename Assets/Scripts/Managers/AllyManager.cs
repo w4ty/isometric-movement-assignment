@@ -28,7 +28,6 @@ public class AllyManager : MonoBehaviour
     private void UpdateLeader(AllyCharacter character)
     {
         Leader = character;
-        Debug.Log($"{Leader} has been selected!");
         LeadIndicator.SetLeader(Leader);
     }
 
@@ -36,18 +35,23 @@ public class AllyManager : MonoBehaviour
     {
         if (Leader != null)
         {
-            foreach(AllyCharacter character in Allies)
+            CharacterLogic();
+        }
+    }
+
+    private void CharacterLogic()
+    {
+        foreach (AllyCharacter character in Allies)
+        {
+            if (character != Leader)
             {
-                if (character != Leader) 
+                if (Vector3.Distance(character.transform.position, Leader.transform.position) > 3)
                 {
-                    if(Vector3.Distance(character.transform.position, Leader.transform.position) > 3)
-                    {
-                        character.Move(Leader.transform.position);
-                    }
-                    else
-                    {
-                        character.Stop();
-                    }
+                    character.Move(Leader.transform.position);
+                }
+                else
+                {
+                    character.Stop();
                 }
             }
         }
