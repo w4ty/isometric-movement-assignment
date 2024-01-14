@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
     private Vector3Int mapSize;
     public GameDataScriptableObject GameData;
     public Terrain BaseTerrain;
-    public event Action<Vector2Int> OnFinishSetup;
 
     private void OnExited()
     {
@@ -61,11 +60,10 @@ public class GameManager : MonoBehaviour
             instance.transform.position = spawns[i].Position;
             if (instance.TryGetComponent(out AllyCharacter ally))
             {
-                uiManager.CreateButton(ally.ToString(), ally);
                 allyManager.Allies.Add(ally);
+                uiManager.CreateButton($"Character {allyManager.Allies.Count}", ally);
             }
         }
         spawns.Clear();
-        OnFinishSetup?.Invoke(new Vector2Int(mapSize.x, mapSize.z));
     }
 }
