@@ -9,4 +9,5 @@ public class SpawnerInfo
 {
     public Vector3 Position;
     public GameObject SpawnObject;
+    public Quaternion Rotation;
 }

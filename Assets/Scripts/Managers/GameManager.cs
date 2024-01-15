@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
         {
             var instance = Instantiate(spawns[i].SpawnObject);
             instance.transform.position = spawns[i].Position;
+            instance.transform.rotation = spawns[i].Rotation;
             if (instance.TryGetComponent(out AllyCharacter ally))
             {
                 allyManager.Allies.Add(ally);
