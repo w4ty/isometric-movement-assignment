@@ -17,15 +17,24 @@ MonoBehaviour:
   - Position: {x: 12, y: 1, z: 14}
     SpawnObject: {fileID: 5805860028190266960, guid: bd7ff2465939eb3479966b46af955c03,
       type: 3}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
   - Position: {x: 12, y: 1, z: 10}
     SpawnObject: {fileID: 5805860028190266960, guid: bd7ff2465939eb3479966b46af955c03,
       type: 3}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
   - Position: {x: 16, y: 1, z: 10}
     SpawnObject: {fileID: 5805860028190266960, guid: bd7ff2465939eb3479966b46af955c03,
       type: 3}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
   - Position: {x: 20, y: 0.5, z: 20}
     SpawnObject: {fileID: 6366105601469750586, guid: c67d893a988634246890e61c61ff579d,
       type: 3}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
   - Position: {x: 16, y: 0.5, z: 17}
     SpawnObject: {fileID: 6366105601469750586, guid: c67d893a988634246890e61c61ff579d,
       type: 3}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
+  - Position: {x: 20, y: 0.5, z: 15}
+    SpawnObject: {fileID: 5661590147296467818, guid: 88e34581cd64dea44b38e2e079161694,
+      type: 3}
+    Rotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
