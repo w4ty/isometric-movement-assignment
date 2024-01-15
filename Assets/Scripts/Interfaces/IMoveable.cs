@@ -5,5 +5,5 @@ public interface IMoveable
     float Speed { get; set; }
     float Agility { get; set; }
 
-    void Move(Vector3 position);
+    void Move(Vector3 position, int priority);
 }

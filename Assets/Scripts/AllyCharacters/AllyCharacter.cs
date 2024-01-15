@@ -26,9 +26,10 @@ public class AllyCharacter : MonoBehaviour, IMoveable, IKillable, ISelectable, I
         agent.speed = Speed;
     }
 
-    public void Move(Vector3 position)
+    public void Move(Vector3 position, int priority)
     {
         agent.isStopped = false;
+        agent.avoidancePriority = priority;
         agent.SetDestination(position);
     }
 

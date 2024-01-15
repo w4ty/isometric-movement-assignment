@@ -22,7 +22,7 @@ public class AllyManager : MonoBehaviour
     {
         if (Leader != null)
         {
-            Leader.Move(destination);
+            Leader.Move(destination, 0);
         }
     }
     private void UpdateLeader(AllyCharacter character)
@@ -45,9 +45,9 @@ public class AllyManager : MonoBehaviour
         {
             if (character != Leader)
             {
-                if (Vector3.Distance(character.transform.position, Leader.transform.position) > 3)
+                if (Vector3.Distance(character.transform.position, Leader.transform.position) > 2)
                 {
-                    character.Move(Leader.transform.position);
+                    character.Move(Leader.transform.position, Random.Range(1, Allies.Count));
                 }
                 else
                 {
